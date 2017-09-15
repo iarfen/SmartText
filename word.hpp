@@ -16,6 +16,7 @@ namespace smarttext
 		public:
 			word(string);
 
+			/// Returns the chars that compose the word
 			inline const string& get_chars() const
 			{
 				return chars;
@@ -27,6 +28,7 @@ namespace smarttext
 			bool is_chat_word() const;
 			bool is_lowercase() const;
 
+			/// Returns true if all the characters of the word are uppercase
 			inline bool is_uppercase() const
 			{
 				return !is_lowercase();
@@ -34,6 +36,7 @@ namespace smarttext
 
 			bool is_capitalized() const;
 
+			/// Returns true if the word is not a chat word (or a language word)
 			inline bool is_incorrect_word() const
 			{
 				return !is_chat_word();

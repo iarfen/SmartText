@@ -16,16 +16,19 @@ namespace smarttext
 		public:
 			line(string,language);
 
+			/// Returns a vector<word> of the words that compose the line
 			inline const vector<word>& get_words() const
 			{
 				return words;
 			}
 
+			/// Returns the starting character punctuation, if any
 			inline char get_start_punctuation() const
 			{
 				return start_punctuation;
 			}
 
+			/// Returns the final character punctuation, if any
 			inline char get_final_punctuation() const
 			{
 				return final_punctuation;

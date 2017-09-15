@@ -9,6 +9,7 @@ using namespace std;
 
 namespace smarttext
 {
+	/// Creates a new line with the given string and the selected language
 	line::line(string new_line,language current_language) : words(),start_punctuation('\0'),final_punctuation('\0')
 	{
 		string final_words;

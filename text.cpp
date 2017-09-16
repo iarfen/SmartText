@@ -9,7 +9,7 @@ namespace smarttext
 	text::text(string text_content, language new_current_language) : paragraphs(),current_language(new_current_language),raw_content(text_content)
 	{
 		vector<string> new_paragraphs;
-		boost::split(new_paragraphs,text_content,boost::is_any_of(".:?!"));
+		boost::split(new_paragraphs,text_content,boost::is_any_of("\n"));
 		for (const string& new_paragraph : new_paragraphs)
 		{
 			if (new_paragraph != "")

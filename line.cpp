@@ -13,6 +13,11 @@ namespace smarttext
 	line::line(string new_line,const text* new_text) : words(),start_punctuation('\0'),final_punctuation('\0'),raw_content(new_line),text_container(new_text)
 	{
 		string final_words;
+		if (new_line[0] == ' ')
+		{
+			new_line = new_line.substr(1,new_line.size() - 1);
+			raw_content = new_line;
+		}
 		if (is_starting_punctuation(new_line[0],text_container->get_current_language()))
 		{
 			if (is_ending_punctuation(new_line[new_line.size() - 1],text_container->get_current_language()))

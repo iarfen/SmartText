@@ -5,7 +5,6 @@ using namespace std;
 
 namespace smarttext
 {
-	/// Returns true if the character is a punctuation for the given language
 	bool is_punctuation(char x,language current_language)
 	{
 		if (current_language == language::spanish)
@@ -19,7 +18,6 @@ namespace smarttext
 		return false;
 	}
 
-	/// Returns true if the character is a starting punctuation for the given language
 	bool is_starting_punctuation(char x,language current_language)
 	{
 		if (current_language == language::spanish)
@@ -33,7 +31,6 @@ namespace smarttext
 		return false;
 	}
 
-	/// Returns true if the character is an ending punctuation for the given language
 	bool is_ending_punctuation(char x,language current_language)
 	{
 		if (current_language == language::spanish)
@@ -47,7 +44,6 @@ namespace smarttext
 		return false;
 	}
 
-	/// Returns true if the character is a middle punctuation for the given language
 	bool is_middle_punctuation(char x,language current_language)
 	{
 		if (current_language == language::spanish)

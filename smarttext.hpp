@@ -7,5 +7,7 @@ using namespace std;
 #include "letter.hpp"
 #include "word.hpp"
 #include "line.hpp"
+#include "paragraph.hpp"
+#include "text.hpp"
 
 #endif // SMARTTEXT_HPP_INCLUDED

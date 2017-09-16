@@ -23,12 +23,10 @@ namespace smarttext
 		{"r","rr"}
 	};
 
-	/// Constructs a new word with the given characters
 	word::word(string new_chars) : chars(new_chars)
 	{
 	}
 
-	/// Returns a wstring containing the word
 	wstring word::display() const
 	{
 		wstring chars2 (chars.length(),L' ');
@@ -36,7 +34,6 @@ namespace smarttext
 		return chars2;
 	}
 
-	/// Returns true if the word is a number
 	bool word::is_number() const
 	{
 		for (const char& word_char : chars)
@@ -49,7 +46,6 @@ namespace smarttext
 		return true;
 	}
 
-	/// Returns true if the word is composed by letters and not by numbers
 	bool word::is_letter_word() const
 	{
 		for (const char& word_char : chars)
@@ -62,13 +58,11 @@ namespace smarttext
 		return true;
 	}
 
-	/// Returns true if the word is composed only by characters of the language
 	bool word::is_language_word() const
 	{
 		return (is_letter_word() or is_number());
 	}
 
-	/// Returns true if the word is a normal word related to the rules of the language, or a chat word with common characters switched
 	bool word::is_chat_word() const
 	{
 		for (const char& word_char : chars)
@@ -81,7 +75,6 @@ namespace smarttext
 		return true;
 	}
 
-	/// Returns true if all the characters of the word are lowercase
 	bool word::is_lowercase() const
 	{
 		for (const char& word_char : chars)
@@ -94,7 +87,6 @@ namespace smarttext
 		return true;
 	}
 
-	/// Returns true if the first character is capitalized and all the others are lowercase
 	bool word::is_capitalized() const
 	{
 		if (!isupper(chars[0]))
@@ -111,7 +103,6 @@ namespace smarttext
 		return true;
 	}
 
-	/// Returns true if the word is a day
 	bool word::is_day(language current_language) const
 	{
 		if (current_language == language::english)
@@ -125,7 +116,6 @@ namespace smarttext
 		return false;
 	}
 
-	/// Returns true if the word is a month
 	bool word::is_month(language current_language) const
 	{
 		if (current_language == language::english)
@@ -138,9 +128,16 @@ namespace smarttext
 		}
 		return false;
 	}
+
+	bool word::is_insult(language current_language) const
+	{
+		if (current_language == language::spanish)
+		{
+			return (chars == "imbécil" or chars == "imbécila" or chars == "estúpido" or chars == "estúpida" or chars == "tonto" or chars == "tonta" or chars == "weon" or chars == "weona" or chars == "wn" or chars == "wna" or chars == "patudo" or chars == "patuda" or chars == "patuo" or chars == "patua" or chars == "sinvergüenza" or chars == "culiado" or chars == "culiada" or chars == "culiao" or chars == "culiaa" or chars == "ql" or chars == "qliao" or chars == "qliaa" or chars == "qliado" or chars == "qliada" or chars == "flaite" or chars == "cochino" or chars == "cochina" or chars == "chancho" or chars == "chancha" or chars == "cerdo" or chars == "cerda" or chars == "mierda" or chars == "pto" or chars == "pta" or chars == "puto" or chars == "puta" or chars == "prostituto" or chars == "prostituta" or chars == "gigolo" or chars == "maricón" or chars == "maricona" or chars == "maraco" or chars == "maraca" or chars == "mamón" or chars == "mamona" or chars == "concha" or chars == "ctm" or chars == "conchatumare" or chars == "hueco" or chars == "hueca" or chars == "mugre");
+		}
+	}
 }
 
-/// Outputs the word to a wostream buffer
 wostream& operator <<(wostream& os, const smarttext::word& x)
 {
 	return os << x.display();

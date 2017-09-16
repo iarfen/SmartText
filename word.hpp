@@ -1,6 +1,8 @@
 #ifndef WORD_HPP_INCLUDED
 #define WORD_HPP_INCLUDED
 
+#include "language.hpp"
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -24,6 +26,9 @@ namespace smarttext
 
 			wstring display() const;
 
+			bool is_number() const;
+			bool is_letter_word() const;
+
 			bool is_language_word() const;
 			bool is_chat_word() const;
 			bool is_lowercase() const;
@@ -41,6 +46,9 @@ namespace smarttext
 			{
 				return !is_chat_word();
 			}
+
+			bool is_day(language) const;
+			bool is_month(language) const;
 
 		private:
 			string chars;

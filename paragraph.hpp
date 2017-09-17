@@ -33,6 +33,18 @@ namespace smarttext
 			/// \brief Returns all the words the paragraph is composed of
 			vector<word> get_words() const;
 
+			/// \brief Returns true if the paragraph has the word asked
+			/// \param x string to compare the words to
+			bool has_word(string) const;
+
+			/// \brief Returns true if the paragraph has any of the words asked
+			/// \param x vector of strings of the words to test
+			bool has_any_word(vector<string>) const;
+
+			/// \brief Returns true if the paragraph has all the words given
+			/// \param x vector of strings of the words to test
+			bool has_words(vector<string>) const;
+
 			/// \brief Returns the number of words the paragraph has
 			inline int number_of_words() const
 			{

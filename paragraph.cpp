@@ -40,6 +40,43 @@ namespace smarttext
 		}
 		return out_words;
 	}
+
+	bool paragraph::has_word(string x) const
+	{
+		vector<word> text_words = get_words();
+		for (const word& text_word : text_words)
+		{
+			if (text_word == x)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool paragraph::has_any_word(vector<string> x) const
+	{
+		for (const string& test_word : x)
+		{
+			if (has_word(test_word))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool paragraph::has_words(vector<string> x) const
+	{
+		for (const string& test_word : x)
+		{
+			if (!has_word(test_word))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 }
 
 bool operator ==(const smarttext::paragraph& x,const smarttext::paragraph& y)

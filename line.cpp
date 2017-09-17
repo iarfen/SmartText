@@ -83,6 +83,42 @@ namespace smarttext
 			}
 		}
 	}
+
+	bool line::has_word(string x) const
+	{
+		for (const word& text_word : words)
+		{
+			if (text_word == x)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool line::has_any_word(vector<string> x) const
+	{
+		for (const string& test_word : x)
+		{
+			if (has_word(test_word))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool line::has_words(vector<string> x) const
+	{
+		for (const string& test_word : x)
+		{
+			if (!has_word(test_word))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 }
 
 bool operator ==(const smarttext::line& x,const smarttext::line& y)

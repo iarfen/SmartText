@@ -69,6 +69,18 @@ namespace smarttext
 		return false;
 	}
 
+	bool text::has_any_word(vector<string> x) const
+	{
+		for (const string& test_word : x)
+		{
+			if (has_word(test_word))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	bool text::has_words(vector<string> x) const
 	{
 		for (const string& test_word : x)

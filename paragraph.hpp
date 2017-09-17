@@ -30,6 +30,9 @@ namespace smarttext
 			/// \brief Returns a wstring containing the paragraph
 			wstring display() const;
 
+			/// \brief Returns all the words the paragraph is composed of
+			vector<word> get_words() const;
+
 		private:
 			vector<line> lines;
 			string raw_content;

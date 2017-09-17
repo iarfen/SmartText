@@ -35,6 +35,12 @@ namespace smarttext
 			/// Returns a wstring containing the text
 			wstring display() const;
 
+			/// \brief Returns all the words the text is composed of
+			vector<word> get_words() const;
+
+			/// \brief Returns all the lines the text is composed of
+			vector<line> get_lines() const;
+
 		private:
 			vector<paragraph> paragraphs;
 			language current_language;

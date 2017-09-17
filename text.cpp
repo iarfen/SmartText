@@ -26,6 +26,35 @@ namespace smarttext
 		copy(raw_content.begin(),raw_content.end(),raw_content2.begin());
 		return raw_content2;
 	}
+
+	vector<word> text::get_words() const
+	{
+		vector<word> out_words;
+		for (const paragraph& text_paragraph : paragraphs)
+		{
+			for (const line& text_line : text_paragraph.get_lines())
+			{
+				for (const word& text_word : text_line.get_words())
+				{
+					out_words.push_back(text_word);
+				}
+			}
+		}
+		return out_words;
+	}
+
+	vector<line> text::get_lines() const
+	{
+		vector<line> out_lines;
+		for (const paragraph& text_paragraph : paragraphs)
+		{
+			for (const line& text_line : text_paragraph.get_lines())
+			{
+				out_lines.push_back(text_line);
+			}
+		}
+		return out_lines;
+	}
 }
 
 wostream& operator <<(wostream& os, const smarttext::text& x)

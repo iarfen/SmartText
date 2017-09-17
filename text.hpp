@@ -41,8 +41,13 @@ namespace smarttext
 			/// \brief Returns all the lines the text is composed of
 			vector<line> get_lines() const;
 
-			/// \brief Returns if the text has the word or doesn't has it
+			/// \brief Returns if the text has the word asked
+			/// \param x string to compare the words to
 			bool has_word(string) const;
+
+			/// \brief Returns if the text has all the words given
+			/// \param x vector of strings of the words to test
+			bool has_words(vector<string>) const;
 
 		private:
 			vector<paragraph> paragraphs;
@@ -50,6 +55,9 @@ namespace smarttext
 			string raw_content;
 	};
 }
+
+/// \brief Returns true if the text is identical to the compared text
+bool operator ==(const smarttext::text&,const smarttext::text&);
 
 /// \brief Outputs the text to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::text&);

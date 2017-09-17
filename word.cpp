@@ -148,6 +148,11 @@ bool operator ==(const smarttext::word& x,string y)
 	return (x.get_chars() == y);
 }
 
+bool operator ==(const smarttext::word& x,const smarttext::word& y)
+{
+	return (x.get_chars() == y.get_chars());
+}
+
 wostream& operator <<(wostream& os, const smarttext::word& x)
 {
 	return os << x.display();

@@ -40,6 +40,9 @@ namespace smarttext
 	};
 }
 
+/// \brief Returns true if the paragraph is identical to the compared paragraph
+bool operator ==(const smarttext::paragraph&,const smarttext::paragraph&);
+
 /// \brief Outputs the paragraph to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::paragraph&);
 

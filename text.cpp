@@ -58,7 +58,7 @@ namespace smarttext
 
 	bool text::has_word(string x) const
 	{
-		vector<word> text_words;
+		vector<word> text_words = get_words();
 		for (const word& text_word : text_words)
 		{
 			if (text_word == x)
@@ -68,6 +68,23 @@ namespace smarttext
 		}
 		return false;
 	}
+
+	bool text::has_words(vector<string> x) const
+	{
+		for (const string& test_word : x)
+		{
+			if (!has_word(test_word))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+}
+
+bool operator ==(const smarttext::text& x,const smarttext::text& y)
+{
+	return (x.display() == y.display());
 }
 
 wostream& operator <<(wostream& os, const smarttext::text& x)

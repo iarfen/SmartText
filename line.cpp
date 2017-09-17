@@ -85,6 +85,11 @@ namespace smarttext
 	}
 }
 
+bool operator ==(const smarttext::line& x,const smarttext::line& y)
+{
+	return (x.display() == y.display());
+}
+
 wostream& operator <<(wostream& os, const smarttext::line& x)
 {
 	return os << x.display();

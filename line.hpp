@@ -58,6 +58,9 @@ namespace smarttext
 	};
 }
 
+/// \brief Returns true if the line is identical to the compared line
+bool operator ==(const smarttext::line&,const smarttext::line&);
+
 /// \brief Outputs the line to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::line&);
 

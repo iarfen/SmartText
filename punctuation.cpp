@@ -16,6 +16,11 @@ namespace smarttext
 	}
 }
 
+bool operator ==(const smarttext::punctuation& x,const smarttext::punctuation& y)
+{
+	return (x.display() == y.display());
+}
+
 wostream& operator <<(wostream& os, const smarttext::punctuation& x)
 {
 	return os << x.display();

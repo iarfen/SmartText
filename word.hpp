@@ -93,6 +93,9 @@ bool operator ==(string, const smarttext::word&);
 /// \brief Returns true if the word is identical to the compared string
 bool operator ==(const smarttext::word&,string);
 
+/// \brief Returns true if the word is identical to the compared word
+bool operator ==(const smarttext::word&,const smarttext::word&);
+
 /// \brief Outputs the word to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::word&);
 

@@ -31,6 +31,9 @@ namespace smarttext
 	};
 }
 
+/// \brief Returns true if the punctuation is identical to the compared punctuation
+bool operator ==(const smarttext::punctuation&,const smarttext::punctuation&);
+
 /// \brief Outputs the punctuation to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::punctuation&);
 

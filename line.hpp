@@ -22,31 +22,31 @@ namespace smarttext
             /// \param new_text pointer to the text this line belongs to
 			explicit line(string,const text*);
 
-			/// Returns a vector<word> of the words that compose the line
+			/// \brief Returns a vector<word> of the words that compose the line
 			inline const vector<word>& get_words() const
 			{
 				return words;
 			}
 
-			/// Returns a wstring containing the line
+			/// \brief Returns a wstring containing the line
 			wstring display() const;
 
-			/// Returns the starting character punctuation, if any
+			/// \brief Returns the starting character punctuation, if any
 			inline char get_start_punctuation() const
 			{
 				return start_punctuation;
 			}
 
-			/// Returns the final character punctuation, if any
+			/// \brief Returns the final character punctuation, if any
 			inline char get_final_punctuation() const
 			{
 				return final_punctuation;
 			}
 
-			/// Returns true if the line has a date inside
+			/// \brief Returns true if the line has a date inside
 			bool has_partial_date() const;
 
-			/// Returns true if the line has a date inside
+			/// \brief Returns true if the line has a date inside
 			bool has_date() const;
 
 		private:
@@ -58,7 +58,7 @@ namespace smarttext
 	};
 }
 
-/// Outputs the line to a wostream buffer
+/// \brief Outputs the line to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::line&);
 
 #endif // LINE_HPP_INCLUDED

@@ -31,7 +31,7 @@ namespace smarttext
 	};
 }
 
-/// Outputs the punctuation to a wostream buffer
+/// \brief Outputs the punctuation to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::punctuation&);
 
 #endif // PUNCTUATION_HPP_INCLUDED

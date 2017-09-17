@@ -87,7 +87,7 @@ namespace smarttext
 	};
 }
 
-/// Outputs the word to a wostream buffer
+/// \brief Outputs the word to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::word&);
 
 #endif // WORD_HPP_INCLUDED

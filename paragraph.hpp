@@ -21,13 +21,13 @@ namespace smarttext
 			/// \param new_content_language language of the paragraph
 			explicit paragraph(string,const text*);
 
-			/// Returns the lines of the paragraph
+			/// \brief Returns the lines of the paragraph
 			inline const vector<line>& get_lines() const
 			{
 				return lines;
 			}
 
-			/// Returns a wstring containing the paragraph
+			/// \brief Returns a wstring containing the paragraph
 			wstring display() const;
 
 		private:
@@ -37,7 +37,7 @@ namespace smarttext
 	};
 }
 
-/// Outputs the paragraph to a wostream buffer
+/// \brief Outputs the paragraph to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::paragraph&);
 
 #endif // PARAGRAPH_HPP_INCLUDED

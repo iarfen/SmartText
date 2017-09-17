@@ -20,19 +20,19 @@ namespace smarttext
 			/// \param new_current_language language the text is on
 			explicit text(string,language);
 
-			/// Returns the paragraphs of the text
+			/// \brief Returns the paragraphs of the text
 			inline const vector<paragraph>& get_paragraphs() const
 			{
 				return paragraphs;
 			}
 
-			/// Returns the selected language
+			/// \brief Returns the selected language
 			inline language get_current_language() const
 			{
 				return current_language;
 			}
 
-			/// Returns a wstring containing the text
+			/// \brief Returns a wstring containing the text
 			wstring display() const;
 
 			/// \brief Returns all the words the text is composed of
@@ -48,7 +48,7 @@ namespace smarttext
 	};
 }
 
-/// Outputs the text to a wostream buffer
+/// \brief Outputs the text to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::text&);
 
 #endif // TEXT_HPP_INCLUDED

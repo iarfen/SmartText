@@ -49,6 +49,12 @@ namespace smarttext
 			/// \brief Returns true if the line has a date inside
 			bool has_date() const;
 
+			/// \brief Returns the number of words the line has
+			inline int number_of_words() const
+			{
+				return words.size();
+			}
+
 		private:
 			vector<word> words;
 			char start_punctuation;

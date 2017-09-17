@@ -33,6 +33,18 @@ namespace smarttext
 			/// \brief Returns all the words the paragraph is composed of
 			vector<word> get_words() const;
 
+			/// \brief Returns the number of words the paragraph has
+			inline int number_of_words() const
+			{
+				return get_words().size();
+			}
+
+			/// \brief Returns the number of lines the paragraph has
+			inline int number_of_lines() const
+			{
+				return lines.size();
+			}
+
 		private:
 			vector<line> lines;
 			string raw_content;

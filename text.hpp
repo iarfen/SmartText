@@ -49,6 +49,24 @@ namespace smarttext
 			/// \param x vector of strings of the words to test
 			bool has_words(vector<string>) const;
 
+			/// \brief Returns the number of words the text has
+			inline int number_of_words() const
+			{
+				return get_words().size();
+			}
+
+			/// \brief Returns the number of lines the text has
+			inline int number_of_lines() const
+			{
+				return get_lines().size();
+			}
+
+			/// \brief Returns the number of paragraphs the text has
+			inline int number_of_paragraphs() const
+			{
+				return paragraphs.size();
+			}
+
 		private:
 			vector<paragraph> paragraphs;
 			language current_language;

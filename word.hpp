@@ -87,6 +87,12 @@ namespace smarttext
 	};
 }
 
+/// \brief Returns true if the word is identical to the compared string
+bool operator ==(string, const smarttext::word&);
+
+/// \brief Returns true if the word is identical to the compared string
+bool operator ==(const smarttext::word&,string);
+
 /// \brief Outputs the word to a wostream buffer
 wostream& operator <<(wostream&, const smarttext::word&);
 

@@ -138,6 +138,16 @@ namespace smarttext
 	}
 }
 
+bool operator ==(string x, const smarttext::word& y)
+{
+	return (x == y.get_chars());
+}
+
+bool operator ==(const smarttext::word& x,string y)
+{
+	return (x.get_chars() == y);
+}
+
 wostream& operator <<(wostream& os, const smarttext::word& x)
 {
 	return os << x.display();

@@ -41,6 +41,9 @@ namespace smarttext
 			/// \brief Returns all the lines the text is composed of
 			vector<line> get_lines() const;
 
+			/// \brief Returns if the text has the word or doesn't has it
+			bool has_word(string) const;
+
 		private:
 			vector<paragraph> paragraphs;
 			language current_language;

@@ -55,6 +55,19 @@ namespace smarttext
 		}
 		return out_lines;
 	}
+
+	bool text::has_word(string x) const
+	{
+		vector<word> text_words;
+		for (const word& text_word : text_words)
+		{
+			if (text_word == x)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }
 
 wostream& operator <<(wostream& os, const smarttext::text& x)

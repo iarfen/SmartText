@@ -9,17 +9,20 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
 	/// \class paragraph
 	/// \brief The paragraph class represents a paragraph of text. It distinguish each line that the paragraph has
 	class paragraph
 	{
 		public:
+			/// \brief Default constructor. Constructs an empty paragraph
+			paragraph();
+
 			/// \brief Creates a new paragraph of the given string
 			/// \param paragraph_content text of the paragraph
 			/// \param new_content_language language of the paragraph
-			explicit paragraph(string,const text*);
+			explicit paragraph(const string&,const text*);
 
 			/// \brief Returns the lines of the paragraph
 			inline const vector<line>& get_lines() const
@@ -27,8 +30,8 @@ namespace smarttext
 				return lines;
 			}
 
-			/// \brief Returns a wstring containing the paragraph
-			wstring display() const;
+			/// \brief Returns a string containing the paragraph
+			string display() const;
 
 			/// \brief Returns all the words the paragraph is composed of
 			vector<word> get_words() const;
@@ -58,16 +61,16 @@ namespace smarttext
 			}
 
 		private:
-			vector<line> lines;
-			string raw_content;
-			const text* text_container;
+			vector<line> lines; ///< lines of the paragraph
+			string raw_content; ///< original string of the paragraph
+			const text* text_container; ///< parent text class of the paragraph class
 	};
 }
 
 /// \brief Returns true if the paragraph is identical to the compared paragraph
-bool operator ==(const smarttext::paragraph&,const smarttext::paragraph&);
+bool operator ==(const smtext::paragraph&,const smtext::paragraph&);
 
-/// \brief Outputs the paragraph to a wostream buffer
-wostream& operator <<(wostream&, const smarttext::paragraph&);
+/// \brief Outputs the paragraph to a ostream buffer
+ostream& operator <<(ostream&, const smtext::paragraph&);
 
 #endif // PARAGRAPH_HPP_INCLUDED

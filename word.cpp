@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
 	map<string,string> common_chat_conversions
 	{
@@ -23,13 +23,38 @@ namespace smarttext
 		{"r","rr"}
 	};
 
-	word::word(string new_chars) : chars(new_chars)
+	word::word() : chars()
 	{
 	}
 
-	wstring word::display() const
+	word::word(const string& new_chars) : chars(new_chars)
 	{
-		wstring chars2 (chars.length(),L' ');
+	}
+
+
+	bool word::operator <(const smtext::word& x) const
+	{
+		return (get_chars() < x.get_chars());
+	}
+
+	bool word::operator >(const smtext::word& x) const
+	{
+		return (get_chars() > x.get_chars());
+	}
+
+	bool word::operator <=(const smtext::word& x) const
+	{
+		return !(*this > x);
+	}
+
+	bool word::operator >=(const smtext::word& x) const
+	{
+		return !(*this < x);
+	}
+
+	string word::display() const
+	{
+		string chars2 (chars.length(),L' ');
 		copy(chars.begin(),chars.end(),chars2.begin());
 		return chars2;
 	}
@@ -138,22 +163,37 @@ namespace smarttext
 	}
 }
 
-bool operator ==(string x, const smarttext::word& y)
+bool operator ==(string x, const smtext::word& y)
 {
 	return (x == y.get_chars());
 }
 
-bool operator ==(const smarttext::word& x,string y)
+bool operator !=(string x, const smtext::word& y)
+{
+	return (x != y.get_chars());
+}
+
+bool operator ==(const smtext::word& x,string y)
 {
 	return (x.get_chars() == y);
 }
 
-bool operator ==(const smarttext::word& x,const smarttext::word& y)
+bool operator !=(const smtext::word& x,string y)
+{
+	return (x.get_chars() != y);
+}
+
+bool operator ==(const smtext::word& x,const smtext::word& y)
 {
 	return (x.get_chars() == y.get_chars());
 }
 
-wostream& operator <<(wostream& os, const smarttext::word& x)
+bool operator !=(const smtext::word& x,const smtext::word& y)
+{
+	return (x.get_chars() != y.get_chars());
+}
+
+ostream& operator <<(ostream& os, const smtext::word& x)
 {
 	return os << x.display();
 }

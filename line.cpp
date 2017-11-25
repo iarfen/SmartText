@@ -8,8 +8,12 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
+	line::line() : words(),start_punctuation(),final_punctuation(),raw_content(),text_container()
+	{
+	}
+
 	line::line(string new_line,const text* new_text) : words(),start_punctuation('\0'),final_punctuation('\0'),raw_content(new_line),text_container(new_text)
 	{
 		string final_words;
@@ -53,9 +57,9 @@ namespace smarttext
 		}
 	}
 
-	wstring line::display() const
+	string line::display() const
 	{
-		wstring raw_content2 (raw_content.length(),L' ');
+		string raw_content2 (raw_content.length(),L' ');
 		copy(raw_content.begin(),raw_content.end(),raw_content2.begin());
 		return raw_content2;
 	}
@@ -121,12 +125,12 @@ namespace smarttext
 	}
 }
 
-bool operator ==(const smarttext::line& x,const smarttext::line& y)
+bool operator ==(const smtext::line& x,const smtext::line& y)
 {
 	return (x.display() == y.display());
 }
 
-wostream& operator <<(wostream& os, const smarttext::line& x)
+ostream& operator <<(ostream& os, const smtext::line& x)
 {
 	return os << x.display();
 }

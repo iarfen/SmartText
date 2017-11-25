@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
 	/// \brief Returns true if the character is a punctuation for the given language
 	/// \param x punctuation character to test

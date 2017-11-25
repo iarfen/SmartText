@@ -2,26 +2,30 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
-	punctuation::punctuation(string new_chars) : chars(new_chars)
+	punctuation::punctuation() : chars()
 	{
 	}
 
-	wstring punctuation::display() const
+	punctuation::punctuation(const string& new_chars) : chars(new_chars)
 	{
-		wstring chars2 (chars.length(),L' ');
+	}
+
+	string punctuation::display() const
+	{
+		string chars2 (chars.length(),L' ');
 		copy(chars.begin(),chars.end(),chars2.begin());
 		return chars2;
 	}
 }
 
-bool operator ==(const smarttext::punctuation& x,const smarttext::punctuation& y)
+bool operator ==(const smtext::punctuation& x,const smtext::punctuation& y)
 {
 	return (x.display() == y.display());
 }
 
-wostream& operator <<(wostream& os, const smarttext::punctuation& x)
+ostream& operator <<(ostream& os, const smtext::punctuation& x)
 {
 	return os << x.display();
 }

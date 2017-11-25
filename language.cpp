@@ -2,9 +2,9 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
-	language get_language_from_iso(string iso)
+	language get_language_from_iso(const string& iso)
 	{
 		if (iso == "EN")
 		{
@@ -14,5 +14,18 @@ namespace smarttext
 		{
 			return language::spanish;
 		}
+	}
+
+	bool is_iso(const string& iso)
+	{
+		if (iso == "EN")
+		{
+			return true;
+		}
+		else if (iso == "ES")
+		{
+			return true;
+		}
+		return false;
 	}
 }

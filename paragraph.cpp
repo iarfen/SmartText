@@ -5,9 +5,13 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
-	paragraph::paragraph(string paragraph_content,const text* new_text) : lines(),raw_content(paragraph_content),text_container(new_text)
+	paragraph::paragraph() : lines(),raw_content(),text_container()
+	{
+	}
+
+	paragraph::paragraph(const string& paragraph_content,const text* new_text) : lines(),raw_content(paragraph_content),text_container(new_text)
 	{
 		vector<string> new_lines;
 		boost::split(new_lines,paragraph_content,boost::is_any_of(".:?!"));
@@ -21,9 +25,9 @@ namespace smarttext
 		}
 	}
 
-	wstring paragraph::display() const
+	string paragraph::display() const
 	{
-		wstring raw_content2 (raw_content.length(),L' ');
+		string raw_content2 (raw_content.length(),L' ');
 		copy(raw_content.begin(),raw_content.end(),raw_content2.begin());
 		return raw_content2;
 	}
@@ -79,12 +83,12 @@ namespace smarttext
 	}
 }
 
-bool operator ==(const smarttext::paragraph& x,const smarttext::paragraph& y)
+bool operator ==(const smtext::paragraph& x,const smtext::paragraph& y)
 {
 	return (x.display() == y.display());
 }
 
-wostream& operator <<(wostream& os, const smarttext::paragraph& x)
+ostream& operator <<(ostream& os, const smtext::paragraph& x)
 {
 	return os << x.display();
 }

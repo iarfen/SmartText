@@ -10,13 +10,16 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
 	/// \class line
 	/// \brief The line class represents a line of text. It distinguish punctuation and words
 	class line
 	{
 		public:
+			/// \brief Default constructor. Constructs an empty line
+			line();
+
 			/// \brief Creates a new line with the given string and the selected language
             /// \param new_line characters of the line
             /// \param new_text pointer to the text this line belongs to
@@ -28,8 +31,8 @@ namespace smarttext
 				return words;
 			}
 
-			/// \brief Returns a wstring containing the line
-			wstring display() const;
+			/// \brief Returns a string containing the line
+			string display() const;
 
 			/// \brief Returns the starting character punctuation, if any
 			inline char get_start_punctuation() const
@@ -68,18 +71,18 @@ namespace smarttext
 			}
 
 		private:
-			vector<word> words;
-			char start_punctuation;
-			char final_punctuation;
-			string raw_content;
-			const text* text_container;
+			vector<word> words; ///< words of the line
+			char start_punctuation; ///< starting punctuation of the line
+			char final_punctuation; ///< final punctuation of the line
+			string raw_content; ///< original content of the line
+			const text* text_container; ///< parent text class of the line class
 	};
 }
 
 /// \brief Returns true if the line is identical to the compared line
-bool operator ==(const smarttext::line&,const smarttext::line&);
+bool operator ==(const smtext::line&,const smtext::line&);
 
-/// \brief Outputs the line to a wostream buffer
-wostream& operator <<(wostream&, const smarttext::line&);
+/// \brief Outputs the line to a ostream buffer
+ostream& operator <<(ostream&, const smtext::line&);
 
 #endif // LINE_HPP_INCLUDED

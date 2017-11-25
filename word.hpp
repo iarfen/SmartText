@@ -9,7 +9,7 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
 	extern map<string,string> common_chat_conversions;
 
@@ -20,9 +20,12 @@ namespace smarttext
 	class word
 	{
 		public:
+			/// \brief Default constructor. Constructs an empty word
+			word();
+
 			/// \brief Constructs a new word with the given characters
 			/// \param new_chars characters that compose the new word
-			explicit word(string);
+			explicit word(const string&);
 
 			/// \brief Returns the chars that compose the word
 			inline const string& get_chars() const
@@ -30,8 +33,20 @@ namespace smarttext
 				return chars;
 			}
 
-			/// \brief Returns a wstring containing the word
-			wstring display() const;
+			/// \brief Returns true if the first word is ordered before the second word
+			bool operator <(const smtext::word&) const;
+
+			/// \brief Returns true if the first word is ordered after the second word
+			bool operator >(const smtext::word&) const;
+
+			/// \brief Returns true if the first word is ordered before or equal than the second word
+			bool operator <=(const smtext::word&) const;
+
+			/// \brief Returns true if the first word is ordered after or equal than the second word
+			bool operator >=(const smtext::word&) const;
+
+			/// \brief Returns a string containing the word
+			string display() const;
 
 			/// \brief Returns true if the word is a number
 			bool is_number() const;
@@ -83,20 +98,29 @@ namespace smarttext
 			bool is_polytical_insult(language) const;
 
 		private:
-			string chars;
+			string chars; ///< characters of the word
 	};
 }
 
 /// \brief Returns true if the word is identical to the compared string
-bool operator ==(string, const smarttext::word&);
+bool operator ==(string, const smtext::word&);
+
+/// \brief Returns true if the word is different to the compared string
+bool operator !=(string, const smtext::word&);
 
 /// \brief Returns true if the word is identical to the compared string
-bool operator ==(const smarttext::word&,string);
+bool operator ==(const smtext::word&,string);
+
+/// \brief Returns true if the word is different to the compared string
+bool operator !=(const smtext::word&,string);
 
 /// \brief Returns true if the word is identical to the compared word
-bool operator ==(const smarttext::word&,const smarttext::word&);
+bool operator ==(const smtext::word&,const smtext::word&);
 
-/// \brief Outputs the word to a wostream buffer
-wostream& operator <<(wostream&, const smarttext::word&);
+/// \brief Returns true if the word is different to the compared word
+bool operator !=(const smtext::word&,const smtext::word&);
+
+/// \brief Outputs the word to a ostream buffer
+ostream& operator <<(ostream&, const smtext::word&);
 
 #endif // WORD_HPP_INCLUDED

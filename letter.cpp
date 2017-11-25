@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace smarttext
+namespace smtext
 {
 	bool is_punctuation(char x,language current_language)
 	{
